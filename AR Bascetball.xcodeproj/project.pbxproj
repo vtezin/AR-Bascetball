@@ -13,6 +13,7 @@
 		5208EC202297A07500AB99A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5208EC1E2297A07500AB99A0 /* Main.storyboard */; };
 		5208EC222297A07700AB99A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5208EC212297A07700AB99A0 /* Assets.xcassets */; };
 		5208EC252297A07700AB99A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5208EC232297A07700AB99A0 /* LaunchScreen.storyboard */; };
+		5229DF4C229D5D7C005AD8A8 /* applicationStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5229DF4B229D5D7C005AD8A8 /* applicationStates.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		5208EC212297A07700AB99A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5208EC242297A07700AB99A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5208EC262297A07700AB99A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5229DF4B229D5D7C005AD8A8 /* applicationStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = applicationStates.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				5208EC182297A07500AB99A0 /* AppDelegate.swift */,
 				5208EC1A2297A07500AB99A0 /* art.scnassets */,
 				5208EC1C2297A07500AB99A0 /* ViewController.swift */,
+				5229DF4B229D5D7C005AD8A8 /* applicationStates.swift */,
 				5208EC1E2297A07500AB99A0 /* Main.storyboard */,
 				5208EC212297A07700AB99A0 /* Assets.xcassets */,
 				5208EC232297A07700AB99A0 /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5229DF4C229D5D7C005AD8A8 /* applicationStates.swift in Sources */,
 				5208EC1D2297A07500AB99A0 /* ViewController.swift in Sources */,
 				5208EC192297A07500AB99A0 /* AppDelegate.swift in Sources */,
 			);

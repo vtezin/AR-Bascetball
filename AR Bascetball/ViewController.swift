@@ -21,6 +21,9 @@ class ViewController: UIViewController {
     // True when hoop placed
     private var isHoopPlaced = false
     
+    // True when vertical plane founded
+    private var verticalPlaneIsFounded = false
+    
     // index of current abgry bird
     private var indexOfCurrentBird = 0
     
@@ -32,6 +35,8 @@ class ViewController: UIViewController {
     
     // radius of ball
     private var ballRadius:Float = 0.25
+    
+    private var currentState: applicationStates = .foundingPlates
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,9 +88,9 @@ extension ViewController: SCNPhysicsContactDelegate {
         }
         
         //print("\(contact.nodeA.name ?? "") -> \(contact.nodeB.name ?? "")")
-        DispatchQueue.main.async {
+        //DispatchQueue.main.async {
             self.refreshResultLabel()
-        }
+        //}
         
     }
     
@@ -96,7 +101,21 @@ extension ViewController {
     
     /// Refreshing of result info
     func refreshResultLabel() {
-        self.labelGoals.text = "goals \(self.countOfGoals) | \(self.usedBalls) balls"
+        
+        let stateText: String
+        
+        switch currentState {
+        case .foundingPlates:
+            stateText = "...founding vertical plates"
+        case .placingHoop:
+            stateText = "place the hoop (tap on the plate)"
+        case .game:
+            stateText = "goals \(self.countOfGoals) | \(self.usedBalls) balls"
+        }
+        
+        DispatchQueue.main.async {
+            self.labelGoals.text = stateText
+        }
     }
     
     /// Adding hoop
@@ -232,6 +251,8 @@ extension ViewController {
             let location = sender.location(in: sceneView)
             guard let result = sceneView.hitTest(location, types: [.existingPlaneUsingExtent]).first else { return }
             addHoop(at: result)
+            currentState = .game
+            refreshResultLabel()
         }
         
     }
@@ -244,6 +265,11 @@ extension ViewController: ARSCNViewDelegate {
         
         guard !isHoopPlaced else { return }
         
+        if !verticalPlaneIsFounded {
+            currentState = .placingHoop
+            refreshResultLabel()
+        }
+
         guard let anchor = anchor as? ARPlaneAnchor else { return }
         
         let plane = SCNPlane(width: CGFloat(anchor.extent.x), height: CGFloat(anchor.extent.z))
@@ -256,6 +282,8 @@ extension ViewController: ARSCNViewDelegate {
         planeNode.opacity = 0.25
         
         node.addChildNode(planeNode)
+        
+        verticalPlaneIsFounded = true
         
     }
     
