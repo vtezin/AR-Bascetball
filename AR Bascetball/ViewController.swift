@@ -128,20 +128,18 @@ extension ViewController {
         let ringPosition = ringNode.position
         
         // Add contact 1 to the scene
-        let contactUp = createCheckPoint()
-        contactUp.name = "checkPointCenterOfCircle"
-        hoopNode.addChildNode(contactUp)
-        hoopNode.childNode(withName: "checkPointCenterOfCircle", recursively: false)?.position = SCNVector3(ringPosition.x, ringPosition.y, ringPosition.z)
+        let checkPointUp = createCheckPoint()
+        checkPointUp.name = "checkPointCenterOfCircle"
+        hoopNode.addChildNode(checkPointUp)
+        hoopNode.childNode(withName: "checkPointCenterOfCircle", recursively: false)?.position = SCNVector3(ringPosition.x, ringPosition.y + ballRadius, ringPosition.z)
         
         // Add contact 2 to the scene
-        let contactDn = createCheckPoint()
-        contactDn.name = "checkPointDown"
-        hoopNode.addChildNode(contactDn)
+        let checkPointDown = createCheckPoint()
+        checkPointDown.name = "checkPointDown"
+        hoopNode.addChildNode(checkPointDown)
         hoopNode.childNode(withName: "checkPointDown", recursively: false)?.position = SCNVector3(ringPosition.x, ringPosition.y - 1.5 * ballRadius, ringPosition.z)
         
         // Place the hoop in correct position
-        //let planePosition = result.worldTransform.columns.3
-        // hoopNode.position = SCNVector3(planePosition.x, planePosition.y, planePosition.z)
         
         hoopNode.simdTransform = result.worldTransform
         hoopNode.eulerAngles.x -= .pi/2
