@@ -15,6 +15,9 @@ class ViewController: UIViewController {
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet var labelGoals: UILabel!
     
+    @IBOutlet var buttonRestart: UIButton!
+    @IBOutlet var buttonReset: UIButton!
+    
     // Counts vertical planes
     private var planeCounter = 0
     
@@ -240,6 +243,26 @@ extension ViewController {
 
 // MARK: - IBActions
 extension ViewController {
+    
+    @IBAction func restartPressed(_ sender: Any) {
+        isHoopPlaced = false
+        verticalPlaneIsFounded = false
+        countOfGoals = 0
+        usedBalls = 0
+        currentState = .foundingPlates
+        
+        //removing hoop
+        guard let hoopNode = sceneView.scene.rootNode.childNode(withName: "Hoop", recursively: false) else { return }
+        hoopNode.removeFromParentNode()
+        
+        refreshResultLabel()
+    }
+    
+    @IBAction func resetPressed(_ sender: Any) {
+        usedBalls = 0
+        countOfGoals = 0
+        refreshResultLabel()
+    }
     
     @IBAction func screenTapped(_ sender: UITapGestureRecognizer) {
         

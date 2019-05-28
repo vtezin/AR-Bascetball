@@ -31,19 +31,40 @@
                                 <color key="textColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w0G-re-nd1">
+                                <rect key="frame" x="16" y="20" width="46" height="30"/>
+                                <state key="normal" title="restart"/>
+                                <connections>
+                                    <action selector="restartPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="SZw-aX-sej"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3f6-Ho-jng">
+                                <rect key="frame" x="269" y="20" width="35" height="30"/>
+                                <state key="normal" title="reset"/>
+                                <connections>
+                                    <action selector="resetPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="08G-BJ-YST"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="w0G-re-nd1" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" constant="16" id="0W0-Sg-y7L"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" id="GsS-dJ-CKf"/>
+                            <constraint firstItem="w0G-re-nd1" firstAttribute="top" secondItem="fQZ-KI-GVf" secondAttribute="top" id="LaU-aW-Az1"/>
+                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="3f6-Ho-jng" secondAttribute="trailing" constant="16" id="RDY-a4-RPK"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="bottom" secondItem="fQZ-KI-GVf" secondAttribute="bottom" id="VpT-BR-CcM"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="fQZ-KI-GVf" secondAttribute="trailing" id="XyZ-9z-H8e"/>
                             <constraint firstItem="amd-5c-Lbi" firstAttribute="centerX" secondItem="U0K-SW-4ec" secondAttribute="centerX" id="gTc-wd-7dY"/>
                             <constraint firstItem="fQZ-KI-GVf" firstAttribute="bottom" secondItem="amd-5c-Lbi" secondAttribute="bottom" constant="20" id="qCK-gb-lOe"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" id="rJc-2c-zQA"/>
+                            <constraint firstItem="3f6-Ho-jng" firstAttribute="top" secondItem="fQZ-KI-GVf" secondAttribute="top" id="ube-uV-lQF"/>
+                            <constraint firstItem="3f6-Ho-jng" firstAttribute="leading" relation="lessThanOrEqual" secondItem="w0G-re-nd1" secondAttribute="trailing" constant="207" id="w6V-ko-DcE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fQZ-KI-GVf"/>
                     </view>
                     <connections>
+                        <outlet property="buttonReset" destination="3f6-Ho-jng" id="0sn-Mc-c6D"/>
+                        <outlet property="buttonRestart" destination="w0G-re-nd1" id="D16-fY-cxy"/>
                         <outlet property="labelGoals" destination="amd-5c-Lbi" id="NNK-xH-FUQ"/>
                         <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
                     </connections>
